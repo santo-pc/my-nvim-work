@@ -8,6 +8,5 @@ return {
         verbose = true,
       },
     },
-    disabled_filetypes = { 'neo-tree' },
   },
 }
