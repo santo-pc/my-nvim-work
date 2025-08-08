@@ -1,8 +1,8 @@
-require 'lsp.configs.clangd'
-require 'lsp.configs.lua_ls'
-require 'lsp.configs.nixd'
--- require 'lsp.configs.elixir-ls'
-require 'lsp.configs.lexical'
+-- require 'lsp.configs.clangd'
+-- require 'lsp.configs.lua_ls'
+-- require 'lsp.configs.nixd'
+-- -- require 'lsp.configs.elixir-ls'
+-- require 'lsp.configs.lexical'
 
 vim.lsp.enable {
   'clangd',
