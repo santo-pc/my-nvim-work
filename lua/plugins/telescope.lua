@@ -14,7 +14,7 @@ return {
       },
       { 'nvim-telescope/telescope-ui-select.nvim' },
 
-      { 'nvim-tree/nvim-web-devicons', enabled = vim.g.have_nerd_font },
+      { 'nvim-tree/nvim-web-devicons',            enabled = vim.g.have_nerd_font },
     },
     config = function()
       local actions = require 'telescope.actions'
@@ -45,8 +45,8 @@ return {
       vim.keymap.set('n', '<leader>sd', builtin.diagnostics, { desc = '[S]earch [D]iagnostics' })
       vim.keymap.set('n', '<leader>sr', builtin.resume, { desc = '[S]earch [R]esume' })
       vim.keymap.set('n', '<leader>s.', builtin.oldfiles, { desc = '[S]earch Recent Files ("." for repeat)' })
-      vim.keymap.set('n', '<leader><leader>', builtin.find_files, { desc = '[ ] Find files' })
-      vim.keymap.set('n', '<leader>/', builtin.live_grep, { desc = '[ ] Live grep' })
+      vim.keymap.set('n', '<leader><leader>', builtin.find_files, { desc = '[S] Find files' })
+      vim.keymap.set('n', '<leader>/', builtin.live_grep, { desc = '[S]earch Live [G]rep' })
       vim.keymap.set('n', '<leader>lq', builtin.quickfix, { desc = '[ ] Quickfix List' })
       vim.keymap.set('n', '<leader>lj', builtin.jumplist, { desc = '[ ] Jumplist' })
 

@@ -26,8 +26,8 @@ vim.keymap.set('n', '<leader>pp', '<cmd>bprevious<cr>', { desc = 'Prev Buffer' }
 vim.keymap.set('n', '<leader>nn', '<cmd>bnext<cr>', { desc = 'Next Buffer' })
 
 -- Jump back and Next
-vim.keymap.set('n', 'gn', '<C-i>', { desc = 'Go Next Jump' })
-vim.keymap.set('n', 'gN', '<C-o>', { desc = 'Go Prev Jump' })
+vim.keymap.set('n', '<leader>gn', '<C-i>', { desc = '[N]av Next Jump' })
+vim.keymap.set('n', '<leader>gb', '<C-o>', { desc = '[N]av Prev Jump' })
 
 -- Yank Post
 vim.api.nvim_create_autocmd('TextYankPost', {
@@ -39,12 +39,12 @@ vim.api.nvim_create_autocmd('TextYankPost', {
 })
 
 -- Json Beautify wit jq
-vim.keymap.set('n', '<leader>jj', ':%!jq <CR>', { noremap = true, silent = true, desc = 'Beautify json' })
-vim.keymap.set('n', '<leader>jc', ':%!jq -c <CR>', { noremap = true, silent = true, desc = 'Uglyfy json' })
+vim.keymap.set('n', '<leader>fj', ':%!jq <CR>', { noremap = true, silent = true, desc = '[F]ormat Json Beautify' })
+vim.keymap.set('n', '<leader>fc', ':%!jq -c <CR>', { noremap = true, silent = true, desc = '[F]ormat Json Uglyfy' })
 
 -- Diagnostics
 vim.keymap.set('n', '<leader>xd', vim.diagnostic.setloclist, { desc = 'Open diagnostic [Q]uickfix list' })
-vim.keymap.set('n', '<leader>cd', vim.diagnostic.open_float, { desc = 'Line Diagnostics' })
+vim.keymap.set('n', '<leader>cd', vim.diagnostic.open_float, { desc = 'Line [D]iagnostics' })
 
 local diagnostic_goto = function(next, severity)
   local go = next and vim.diagnostic.goto_next or vim.diagnostic.goto_prev
@@ -54,12 +54,12 @@ local diagnostic_goto = function(next, severity)
   end
 end
 
-vim.keymap.set('n', ']d', diagnostic_goto(true), { desc = 'Next Diagnostic' })
-vim.keymap.set('n', '[d', diagnostic_goto(false), { desc = 'Prev Diagnostic' })
-vim.keymap.set('n', ']e', diagnostic_goto(true, 'ERROR'), { desc = 'Next Error' })
-vim.keymap.set('n', '[e', diagnostic_goto(false, 'ERROR'), { desc = 'Prev Error' })
-vim.keymap.set('n', ']w', diagnostic_goto(true, 'WARN'), { desc = 'Next Warning' })
-vim.keymap.set('n', '[w', diagnostic_goto(false, 'WARN'), { desc = 'Prev Warning' })
+vim.keymap.set('n', ']d', diagnostic_goto(true), { desc = 'Next [D]iagnostic' })
+vim.keymap.set('n', '[d', diagnostic_goto(false), { desc = 'Prev [D]iagnostic' })
+vim.keymap.set('n', ']e', diagnostic_goto(true, 'ERROR'), { desc = 'Next Error [D]iagnostic' })
+vim.keymap.set('n', '[e', diagnostic_goto(false, 'ERROR'), { desc = 'Prev Error [D]iagnostic' })
+vim.keymap.set('n', ']w', diagnostic_goto(true, 'WARN'), { desc = 'Next Warning [D]iagnostic' })
+vim.keymap.set('n', '[w', diagnostic_goto(false, 'WARN'), { desc = 'Prev Warning [D]iagnostic' })
 
 -- location list
 vim.keymap.set('n', '<leader>xl', function()
@@ -68,7 +68,6 @@ vim.keymap.set('n', '<leader>xl', function()
     vim.notify(err, vim.log.levels.ERROR)
   end
 end, { desc = 'Location List' })
-
 -- quickfix list
 vim.keymap.set('n', '<leader>xq', function()
   local success, err = pcall(vim.fn.getqflist({ winid = 0 }).winid ~= 0 and vim.cmd.cclose or vim.cmd.copen)
