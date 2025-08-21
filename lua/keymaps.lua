@@ -104,4 +104,20 @@ vim.keymap.set('n', '[q', function()
   jump_quickfix 'prev'
 end, { desc = 'Jump prev in quixkfix list' })
 
+vim.keymap.set('n', '<leader>tf', function()
+  vim.b.autoformat = not vim.b.autoformat
+
+  if vim.b.autoformat == true then
+    vim.g.autoformat = true
+  end
+end, { desc = '[T]oggle autoformat for current buffer' })
+
+vim.keymap.set('n', '<leader>tF', function()
+  vim.g.autoformat = not vim.g.autoformat
+
+  if vim.g.autoformat ~= true then
+    vim.g.autoformat = false
+  end
+end, { desc = '[T]oggle autoformat globally' })
+
 -- vim: ts=2 sts=2 sw=2 et
