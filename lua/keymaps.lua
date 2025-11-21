@@ -3,8 +3,7 @@
 vim.keymap.set('n', '<Esc>', '<cmd>nohlsearch<CR>')
 
 -- Source config. Only makes sense when editing Neovim: Consider removing
-vim.keymap.set('n', '<leader>.', ':update<CR> :source<CR> :echo "sourced config!"<CR>',
-  { desc = 'Source current file in neovim' })
+vim.keymap.set('n', '<leader>.', ':update<CR> :source<CR> :echo "sourced config!"<CR>', { desc = 'Source current file in neovim' })
 
 vim.keymap.set('t', '<Esc><Esc>', '<C-\\><C-n>', { desc = 'Exit terminal mode' })
 vim.keymap.set('n', '<leader>qq', '<cmd>qa<CR>', { noremap = true, silent = true, desc = 'Quit All' })
@@ -24,6 +23,8 @@ vim.keymap.set('n', '<leader>bb', '<cmd>e #<cr>', { desc = 'Switch to Other Buff
 vim.keymap.set('n', '<leader>`', '<cmd>e #<cr>', { desc = 'Switch to Other Buffer' })
 vim.keymap.set('n', '<leader>pp', '<cmd>bprevious<cr>', { desc = 'Prev Buffer' })
 vim.keymap.set('n', '<leader>nn', '<cmd>bnext<cr>', { desc = 'Next Buffer' })
+vim.keymap.set('n', '<leader>p', '<cmd>bprevious<cr>', { desc = 'Prev Buffer' })
+vim.keymap.set('n', '<leader>n', '<cmd>bnext<cr>', { desc = 'Next Buffer' })
 
 -- Jump back and Next
 vim.keymap.set('n', '<leader>gn', '<C-i>', { desc = '[N]av Next Jump' })
