@@ -5,6 +5,7 @@ vim.lsp.enable {
   'nixd',
   'lexical',
   'yaml-language-server',
+  'ts_ls',
 }
 
 -- don't select the first item from the autocompletion list
