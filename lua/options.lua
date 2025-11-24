@@ -22,7 +22,8 @@ vim.opt.showmode = false
 vim.schedule(function()
   vim.opt.clipboard = 'unnamedplus'
 end)
-
+-- Make vertical splits take half of the width
+vim.opt.winwidth = 50
 -- Enable break indent
 vim.opt.breakindent = true
 
