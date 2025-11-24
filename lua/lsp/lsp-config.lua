@@ -4,6 +4,7 @@ vim.lsp.enable {
   'lua_ls',
   'nixd',
   'lexical',
+  'yaml-language-server',
 }
 
 -- don't select the first item from the autocompletion list
