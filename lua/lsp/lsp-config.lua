@@ -75,7 +75,7 @@ vim.api.nvim_create_autocmd('LspAttach', {
         group = vim.api.nvim_create_augroup('mylsp', { clear = false }),
         buffer = event.buf,
         callback = function()
-          if vim.b.autoformat == true and vim.g.autoformat == true then
+          if vim.b.autoformat == true or vim.g.autoformat == true then
             vim.lsp.buf.format { bufnr = event.buf, id = client.id, timeout_ms = 1000 }
           end
         end,
