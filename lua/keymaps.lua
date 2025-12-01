@@ -4,7 +4,8 @@ local autoformat = require 'autoformat'
 vim.keymap.set('n', '<Esc>', '<cmd>nohlsearch<CR>')
 
 -- Source config. Only makes sense when editing Neovim: Consider removing
-vim.keymap.set('n', '<leader>.', ':update<CR> :source<CR> :echo "sourced config!"<CR>', { desc = 'Source current file in neovim' })
+vim.keymap.set('n', '<leader>.', ':update<CR> :source<CR> :echo "sourced config!"<CR>',
+  { desc = 'Source current file in neovim' })
 
 vim.keymap.set('t', '<Esc><Esc>', '<C-\\><C-n>', { desc = 'Exit terminal mode' })
 vim.keymap.set('n', '<leader>qq', '<cmd>qa<CR>', { noremap = true, silent = true, desc = 'Quit All' })
@@ -108,12 +109,21 @@ end, { desc = 'Jump prev in quixkfix list' })
 
 vim.keymap.set('n', '<leader>tf', function()
   local buf = vim.api.nvim_get_current_buf()
-  vim.b[buf].autoformat = not vim.b[buf].autoformat
+  -- nil is enable thus we disable the first time
+  if vim.b[buf].autoformat == nil then
+    vim.b[buf].autoformat = false
+  else
+    vim.b[buf].autoformat = not vim.b[buf].autoformat
+  end
   print('Buffer autoformat:', autoformat.status())
 end, { desc = '[T]oggle autoformat for current buffer' })
 
 vim.keymap.set('n', '<leader>tF', function()
-  vim.g.autoformat = not vim.g.autoformat
+  if vim.g.autoformat == nil then
+    vim.g.autoformat = false
+  else
+    vim.g.autoformat = not vim.g.autoformat
+  end
   print('Global autoformat:', autoformat.status())
 end, { desc = '[T]oggle autoformat globally' })
 

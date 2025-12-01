@@ -7,6 +7,7 @@ vim.lsp.enable {
   'lexical',
   'yaml-language-server',
   'ts_ls',
+  'gopls'
 }
 
 -- don't select the first item from the autocompletion list
