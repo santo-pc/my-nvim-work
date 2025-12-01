@@ -74,3 +74,6 @@ vim.opt.softtabstop = 4
 vim.opt.confirm = true
 
 vim.o.shell = '/run/current-system/sw/bin/bash'
+
+vim.opt.textwidth = 80
+vim.opt.colorcolumn = '80'

@@ -13,6 +13,9 @@ return {
     --- Since formatting is disabled by default if you check `client:supports_method('textDocument/formatting')`
     --- during `LspAttach` it will return `false`. This hack sets the capability to `true` to facilitate
     --- autocmd's which check this capability
-    client.server_capabilities.documentFormattingProvider = true
+    --- Chekc my custom toggle
+    if vim.b.autoformat == true and vim.g.autoformat == true then
+      client.server_capabilities.documentFormattingProvider = true
+    end
   end,
 }

@@ -1,3 +1,4 @@
+local autoformat = require '../autoformat'
 -- these are loaded from /lua/lsp
 vim.lsp.enable {
   'clangd',
@@ -75,7 +76,7 @@ vim.api.nvim_create_autocmd('LspAttach', {
         group = vim.api.nvim_create_augroup('mylsp', { clear = false }),
         buffer = event.buf,
         callback = function()
-          if vim.b.autoformat == true or vim.g.autoformat == true then
+          if autoformat.should_format(event.buf) then
             vim.lsp.buf.format { bufnr = event.buf, id = client.id, timeout_ms = 1000 }
           end
         end,

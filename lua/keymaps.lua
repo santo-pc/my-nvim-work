@@ -1,3 +1,4 @@
+local autoformat = require 'autoformat'
 -- Clear highlights on search when pressing <Esc> in normal mode
 --  See `:help hlsearch`
 vim.keymap.set('n', '<Esc>', '<cmd>nohlsearch<CR>')
@@ -106,19 +107,14 @@ vim.keymap.set('n', '[q', function()
 end, { desc = 'Jump prev in quixkfix list' })
 
 vim.keymap.set('n', '<leader>tf', function()
-  vim.b.autoformat = not vim.b.autoformat
-
-  if vim.b.autoformat == true then
-    vim.g.autoformat = true
-  end
+  local buf = vim.api.nvim_get_current_buf()
+  vim.b[buf].autoformat = not vim.b[buf].autoformat
+  print('Buffer autoformat:', autoformat.status())
 end, { desc = '[T]oggle autoformat for current buffer' })
 
 vim.keymap.set('n', '<leader>tF', function()
   vim.g.autoformat = not vim.g.autoformat
-
-  if vim.g.autoformat ~= true then
-    vim.g.autoformat = false
-  end
+  print('Global autoformat:', autoformat.status())
 end, { desc = '[T]oggle autoformat globally' })
 
 -- vim: ts=2 sts=2 sw=2 et
