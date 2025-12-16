@@ -14,12 +14,22 @@ return {
       },
       { 'nvim-telescope/telescope-ui-select.nvim' },
 
-      { 'nvim-tree/nvim-web-devicons',            enabled = vim.g.have_nerd_font },
+      { 'nvim-tree/nvim-web-devicons', enabled = vim.g.have_nerd_font },
     },
     config = function()
       local actions = require 'telescope.actions'
       require('telescope').setup {
         defaults = {
+          vimgrep_arguments = {
+            'rg',
+            '--color=never',
+            '--no-heading',
+            '--with-filename',
+            '--line-number',
+            '--column',
+            '--smart-case',
+            '--hidden',
+          },
           mappings = {
             i = { ['<esc>'] = actions.close },
           },

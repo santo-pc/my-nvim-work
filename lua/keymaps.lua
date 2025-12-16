@@ -4,8 +4,7 @@ local autoformat = require 'autoformat'
 vim.keymap.set('n', '<Esc>', '<cmd>nohlsearch<CR>')
 
 -- Source config. Only makes sense when editing Neovim: Consider removing
-vim.keymap.set('n', '<leader>.', ':update<CR> :source<CR> :echo "sourced config!"<CR>',
-  { desc = 'Source current file in neovim' })
+vim.keymap.set('n', '<leader>.', ':update<CR> :source<CR> :echo "sourced config!"<CR>', { desc = 'Source current file in neovim' })
 
 vim.keymap.set('t', '<Esc><Esc>', '<C-\\><C-n>', { desc = 'Exit terminal mode' })
 vim.keymap.set('n', '<leader>qq', '<cmd>qa<CR>', { noremap = true, silent = true, desc = 'Quit All' })
@@ -126,5 +125,8 @@ vim.keymap.set('n', '<leader>tF', function()
   end
   print('Global autoformat:', autoformat.status())
 end, { desc = '[T]oggle autoformat globally' })
+
+vim.keymap.set('n', '<leader>sv', '<cmd>vsplit<cr>', { desc = 'Split Window Vertical' })
+vim.keymap.set('n', '<leader>sp', '<cmd>split<cr>', { desc = 'Split Window Horizontal' })
 
 -- vim: ts=2 sts=2 sw=2 et
