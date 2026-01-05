@@ -20,6 +20,7 @@ return {
       local actions = require 'telescope.actions'
       require('telescope').setup {
         defaults = {
+          hidden = true,
           vimgrep_arguments = {
             'rg',
             '--color=never',
@@ -55,7 +56,11 @@ return {
       vim.keymap.set('n', '<leader>sd', builtin.diagnostics, { desc = '[S]earch [D]iagnostics' })
       vim.keymap.set('n', '<leader>sr', builtin.resume, { desc = '[S]earch [R]esume' })
       vim.keymap.set('n', '<leader>s.', builtin.oldfiles, { desc = '[S]earch Recent Files ("." for repeat)' })
-      vim.keymap.set('n', '<leader><leader>', builtin.find_files, { desc = '[S] Find files' })
+      vim.keymap.set('n', '<leader><leader>', function()
+  builtin.find_files({
+    hidden = true,
+    no_ignore = true,
+  }), { desc = '[S] Find files' })
       vim.keymap.set('n', '<leader>/', builtin.live_grep, { desc = '[S]earch Live [G]rep' })
       vim.keymap.set('n', '<leader>lq', builtin.quickfix, { desc = '[ ] Quickfix List' })
       vim.keymap.set('n', '<leader>lj', builtin.jumplist, { desc = '[ ] Jumplist' })
