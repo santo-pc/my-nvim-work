@@ -1,5 +1,6 @@
 return {
-  'datsfilipe/vesper.nvim',
+        {
+                'datsfilipe/vesper.nvim',
   require('vesper').setup {
     transparent = false, -- Boolean: Sets the background to transparent
     italics = {
@@ -12,4 +13,5 @@ return {
     overrides = {}, -- A dictionary of group names, can be a function returning a dictionary or a table.
     palette_overrides = {},
   },
+        }
 }
