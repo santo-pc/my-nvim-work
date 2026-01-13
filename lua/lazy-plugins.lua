@@ -31,7 +31,9 @@ require('lazy').setup({
 
   require 'plugins/cmp',
 
-  require 'plugins/tokyonight',
+  -- require 'plugins/tokyonight',
+
+  require 'plugins/vesper',
 
   require 'plugins/todo-comments',
 
