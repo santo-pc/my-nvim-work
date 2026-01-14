@@ -33,7 +33,7 @@ require('lazy').setup({
 
   -- require 'plugins/tokyonight',
 
-  -- require 'plugins/vesper',
+  require 'plugins/vesper',
 
   require 'plugins/todo-comments',
 
