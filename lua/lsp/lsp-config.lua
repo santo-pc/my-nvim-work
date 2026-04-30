@@ -1,15 +1,8 @@
 local autoformat = require '../autoformat'
--- these are loaded from /lua/lsp
-vim.lsp.enable {
-  'clangd',
-  'lua_ls',
-  'nixd',
-  'lexical',
-  'yaml-language-server',
-  'ts_ls',
-  'gopls'
-}
 
+-- local capabilities = required 'cmp_nvim_lsp'
+-- vim.lsp.config('*', { capabilities = capabilities })
+--
 -- don't select the first item from the autocompletion list
 vim.cmd 'set completeopt+=noselect'
 
@@ -88,3 +81,14 @@ vim.api.nvim_create_autocmd('LspAttach', {
     capabilities = vim.tbl_deep_extend('force', capabilities, require('cmp_nvim_lsp').default_capabilities())
   end,
 })
+
+-- Enable the servers
+vim.lsp.enable {
+  'clangd',
+  'lua_ls',
+  'nixd',
+  'lexical',
+  'yaml-language-server',
+  'ts_ls',
+  'gopls',
+}
